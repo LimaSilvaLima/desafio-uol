@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"  >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Jogadores</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/5.3.3/css/bootstrap">-->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+</head> 
+<body>
+    <div th:switch ="${jogador}" class="container">
+        <h2 th:case="null">Lista de Jogadores</h2>
+        <div th:case="*" class="row">
+            <h2>Jogdores</h2>
+            <table class="table table responsive table bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Codinome</th>
+                        <th>Grupo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="jogador : ${jogadores}">
+                        <td th:text="${jogador.nome}"></td>
+                        <td th:text="${jogador.email}"></td>
+                        <td th:text="${jogador.telefone}"></td>
+                        <td th:text="${jogador.Codinome}"></td>
+                        <td th:text="${jogador.grupo}"></td>
+                    </tr>>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/jogadorForm">Adicionar Jogador</a></p>
+    </div>
+</body>
+</html>
